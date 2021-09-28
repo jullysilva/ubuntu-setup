@@ -287,10 +287,8 @@ setup() {
   install_docker
   install_docker_compose
   install_nodejs
-  install_neovim
   install_typora
   install_ghcli
-  install_gcloud_sdk
   install_vscode
   install_steam
   install_stacer
@@ -303,8 +301,8 @@ setup() {
   check
 
   step "Configuring Git"
-  git config --global user.name "Gustavo Verzola"
-  git config --global user.email "verzola@gmail.com"
+  git config --global user.name "Jully SIlva"
+  git config --global user.email "jully.silva@suqdra.com.br"
   git config --global tag.sort -version:refname
   git config --global pull.rebase false
   git config --global push.default current
@@ -312,13 +310,8 @@ setup() {
   check
 
   step "Creating projects folder"
-  mkdir -p ~/projects/verzola/
+  mkdir -p ~/projects/jully/
   check
-
-  configure_zsh
-  configure_tmux
-  configure_vim
-  configure_aliases
 
   echo "\nFinished!"
 }
