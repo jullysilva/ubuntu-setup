@@ -283,10 +283,18 @@ setup() {
   sudo apt autoremove -y
   check
 
+  install_chrome
   install_docker
   install_docker_compose
   install_nodejs
+  install_typora
   install_ghcli
+  install_vscode
+  install_steam
+  install_stacer
+  install_telegram
+  install_spotify
+  install_discord
 
   step "Configure date to use Local Time"
   sudo timedatectl set-local-rtc 1 --adjust-system-clock
