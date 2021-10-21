@@ -301,8 +301,8 @@ setup() {
   check
 
   step "Configuring Git"
-  git config --global user.name "Jully SIlva"
-  git config --global user.email "jully.silva@suqdra.com.br"
+  git config --global user.name "Jully Silva"
+  git config --global user.email "jully.silva@squadra.com.br"
   git config --global tag.sort -version:refname
   git config --global pull.rebase false
   git config --global push.default current
