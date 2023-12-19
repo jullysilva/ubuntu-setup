@@ -84,7 +84,7 @@ install_nodejs() {
   if exists node; then
     warning "NodeJS is already installed, skipping install"
   else
-    curl -sL https://deb.nodesource.com/setup_21.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
     sudo apt install -y nodejs
     node --version
   fi
