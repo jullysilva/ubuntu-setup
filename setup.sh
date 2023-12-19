@@ -84,7 +84,7 @@ install_nodejs() {
   if exists node; then
     warning "NodeJS is already installed, skipping install"
   else
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_21.x | sudo -E bash -
     sudo apt install -y nodejs
     node --version
   fi
@@ -129,7 +129,7 @@ install_spotify() {
 }
 
 install_discord() {
-  wget "https://discordapp.com/api/download?platform=linux&format=deb" -O discord.deb
+  wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
   sudo dpkg -i discord.deb
   sudo apt install -f
   sudo rm discord.deb
@@ -169,16 +169,16 @@ install_gcloud_sdk() {
 
 configure_zsh() {
   step "Adding zsh config"
-  if [ ! -d ~/projects/verzola/zshrc ]; then
-    git clone https://github.com/verzola/.zshrc.git ~/projects/verzola/zshrc
+  if [ ! -d ~/projects/ketely/zshrc ]; then
+    git clone https://github.com/verzola/.zshrc.git ~/projects/ketely/zshrc
   else
-    git -C ~/projects/verzola/zshrc pull origin main
+    git -C ~/projects/ketely/zshrc pull origin main
   fi
   check
 
   step "Linking zshrc"
   rm ~/.zshrc
-  ln -s ~/projects/verzola/zshrc/.zshrc ~/.zshrc
+  ln -s ~/projects/ketely/zshrc/.zshrc ~/.zshrc
   check
 
   step "Changing default shell to zsh"
@@ -195,16 +195,16 @@ configure_tmux() {
   check
 
   step "Fetching tmux config"
-  if [ ! -d ~/projects/verzola/tmux.conf ]; then
-    git clone https://github.com/verzola/.tmux.conf.git ~/projects/verzola/tmux.conf
+  if [ ! -d ~/projects/ketely/tmux.conf ]; then
+    git clone https://github.com/verzola/.tmux.conf.git ~/projects/ketely/tmux.conf
   else
-    git -C ~/projects/verzola/tmux.conf pull origin main
+    git -C ~/projects/ketely/tmux.conf pull origin main
   fi
   check
 
   step "Linking tmux config"
   if [ ! -f ~/.tmux.conf ]; then
-    ln -s ~/projects/verzola/tmux.conf/.tmux.conf ~/.tmux.conf
+    ln -s ~/projects/ketely/tmux.conf/.tmux.conf ~/.tmux.conf
   fi
   check
 
@@ -221,23 +221,23 @@ configure_vim() {
   fi
   check
 
-  if [ ! -d ~/projects/verzola/vimrc ]; then
+  if [ ! -d ~/projects/ketely/vimrc ]; then
     step "Fetching vim config"
-    git clone https://github.com/verzola/.vimrc.git ~/projects/verzola/vimrc
+    git clone https://github.com/verzola/.vimrc.git ~/projects/ketely/vimrc
   else
     step "Updating vim config"
-    git -C ~/projects/verzola/vimrc pull origin main
+    git -C ~/projects/ketely/vimrc pull origin main
   fi
   check
 
   step "Linking vim config"
   if [ ! -L ~/.vimrc ]; then
-    ln -s ~/projects/verzola/vimrc/.vimrc ~/.vimrc
+    ln -s ~/projects/ketely/vimrc/.vimrc ~/.vimrc
   fi
 
   if [ ! -L ~/.config/nvim/init.vim ]; then
     mkdir -p ~/.config/nvim
-    ln -s ~/projects/verzola/vimrc/.vimrc ~/.config/nvim/init.vim
+    ln -s ~/projects/ketely/vimrc/.vimrc ~/.config/nvim/init.vim
   fi
   check
 
@@ -248,10 +248,10 @@ configure_vim() {
 
 configure_aliases() {
   step "Fetching aliases"
-  if [ ! -d ~/projects/verzola/aliases ]; then
-    git clone https://github.com/verzola/aliases.git ~/projects/verzola/aliases
+  if [ ! -d ~/projects/ketely/aliases ]; then
+    git clone https://github.com/verzola/aliases.git ~/projects/ketely/aliases
   else
-    git -C ~/projects/verzola/aliases pull origin main
+    git -C ~/projects/ketely/aliases pull origin main
   fi
   check
 }
@@ -292,7 +292,7 @@ setup() {
   install_vscode
   install_steam
   install_stacer
-  install_telegram
+  # install_telegram
   install_spotify
   install_discord
 
@@ -302,7 +302,7 @@ setup() {
 
   step "Configuring Git"
   git config --global user.name "Jully Silva"
-  git config --global user.email "jully.silva@squadra.com.br"
+  git config --global user.email "jkasilva@sga.pucminas.br"
   git config --global tag.sort -version:refname
   git config --global pull.rebase false
   git config --global push.default current
@@ -310,7 +310,7 @@ setup() {
   check
 
   step "Creating projects folder"
-  mkdir -p ~/projects/jully/
+  mkdir -p ~/projects/ketely/
   check
 
   echo "\nFinished!"
